@@ -1,3 +1,6 @@
+
+<!-- hello -->
+
 <?php
 $n=false;
 $managererror=false;
