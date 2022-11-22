@@ -147,10 +147,10 @@ if (isset($_POST['submit'])) {
 <body>
   <div class="hero_area sub_pages">
     <!-- header section strats -->
-    <header class="header_section" style="background-color: #DB3044;">
+    <header class="header_section btn-secondary" >
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand text-light" href="#">
             <span id="shop">
               EASYMED
             </span>
@@ -163,12 +163,28 @@ if (isset($_POST['submit'])) {
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active ">
-                  <a class="nav-link position-relative" href="home.php"><i class="fa fa-home" style="font-size:18px"></i>HOME</a>
+                  <a class="nav-link position-relative" href="home.php"><i class="fa fa-home" style="font-size:18px"></i></a>
                 </li>
                 <li class="nav-item active ">
 
+                  <!-- <form action="admin/viewcart.php"> -->
+                  
+                    <a class=" position-relative  nav-link " href="admin/viewcart.php"type="submit"  name="cart"><i class='fas fa-cart-arrow-down' style='font-size:18px'>
+                    <span class="position-absolute top-30 start-70 translate-middle badge rounded-pill bg-primary">
+                        <?php
+                        $n = $_SESSION['uname'];
+                        $checkcart = "select count(*) as cnt from `cart` where  username='$n'";
+                        $query = mysqli_query($conn, $checkcart);
+                        $ro = mysqli_fetch_array($query);
+                        $cnt = $ro['cnt'];
+                        echo $cnt;
+                        ?>
+                        <span class="visually-hidden">unread messages</span>
+                      </span></i> 
+                      
+                    </a>
 
-                  <a class="nav-link position-relative" href="admin/viewcart.php"><i class='fas fa-cart-arrow-down' style='font-size:18px'></i> cart</a>
+                  <!-- </form> -->
                  
                 </li>
 
